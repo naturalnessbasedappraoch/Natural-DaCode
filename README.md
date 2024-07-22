@@ -36,3 +36,5 @@ Run the dataset preparation script to read `.java` files, remove duplicates, and
 
 ```sh
 python prepare_java_dataset.py
+
+python train_java_tokenizer.py

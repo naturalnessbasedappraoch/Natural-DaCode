@@ -1,8 +1,8 @@
 # A Naturalness-based Approach For codecompletionmodels to distinguish CTdata and CLdata
 
-# Code Completion with RoBERTa
+# Code Completion with UniXcode
 
-This repository contains scripts and instructions for training a RoBERTa-based model to complete Java code. The project involves preprocessing Java files, training the model, and evaluating it on incomplete code snippets.
+This repository contains scripts and instructions for training a RoBERTa-based model to complete Java code. UniXcoder use RoBERTa-based model. The project involves preprocessing Java files, training the model, and evaluating it on incomplete code snippets.
 
 ## Table of Contents
 
@@ -72,7 +72,7 @@ Test the model with incomplete code snippets.
 python run.py --output_dir output --test_dir preprocessed_data --test_output test_output.txt --do_test --eval_batch_size 8
 ```
 
-# Codeparrot as CodecompletionModel
+# Code completion with Codeparrot
 ![Class Hierarchy Diagram](codeparrot_cover.png)
 
 

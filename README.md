@@ -71,6 +71,37 @@ Test the model with incomplete code snippets.
 ```sh
 python run.py --output_dir output --test_dir preprocessed_data --test_output test_output.txt --do_test --eval_batch_size 8
 ```
+## Scripts
+### java_to_txt.py
+This script converts .java files to a single .txt file, formatting the content appropriately.
+```sh
+python java_to_txt.py --input_dir path/to/java/files --output_file output.txt
+```
+###run.py
+This script handles the training, evaluation, and testing of the RoBERTa-based model.
+
+Arguments:
+
+--output_dir: Directory to save model checkpoints and outputs.
+--train_dir: Directory containing preprocessed training data.
+--dev_dir: Directory containing preprocessed validation data.
+--test_dir: Directory containing preprocessed test data.
+--test_output: File containing expected outputs for testing.
+--max_source_length: Maximum sequence length for input.
+--max_target_length: Maximum sequence length for target.
+--do_train: Flag to enable training.
+--do_eval: Flag to enable evaluation.
+--do_test: Flag to enable testing.
+--train_batch_size: Batch size for training.
+--eval_batch_size: Batch size for evaluation and testing.
+--learning_rate: Learning rate for the optimizer.
+--num_train_epochs: Number of training epochs.
+--gradient_accumulation_steps: Gradient accumulation steps.
+--no_cuda: Flag to disable CUDA.
+--seed: Random seed for initialization.
+```sh
+python run.py --output_dir output --train_dir preprocessed_data --dev_dir preprocessed_data --test_dir preprocessed_data --test_output test_output.txt --do_train --do_eval --do_test --train_batch_size 8 --eval_batch_size 8 --num_train_epochs 3
+```
 
 # Code completion with Codeparrot
 ![Class Hierarchy Diagram](codeparrot_cover.png)

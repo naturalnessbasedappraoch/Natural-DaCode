@@ -42,13 +42,17 @@ Train a new tokenizer using the contaminated dataset.
 python train_java_tokenizer.py
 ```
 ### 3. Train the Model
+```sh
 Train the language model using the tokenizer and dataset.
 python train_java_model.py --output_dir codeparrot_java_model --num_train_epochs 3 --per_device_train_batch_size 4 --save_steps 1000 --eval_steps 1000 --logging_dir logs
-
+```
+```sh
 Alternatively, you can use the shell script to run the entire process:
 bash run_java_training.sh
-
+```
 ### 4. Evaluate the Model
+```sh
 Evaluate the trained model on both datasets(contaminated and cleaned).
 python evaluate_model.py
+```
 

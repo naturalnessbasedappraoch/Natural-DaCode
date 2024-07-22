@@ -1,6 +1,6 @@
 # A Naturalness-based Approach For codecompletionmodels to distinguish CTdata and CLdata
 
-# Code Completion with UniXcode
+# Code Completion with UniXcoder
 
 This repository contains scripts and instructions for training a RoBERTa-based model to complete Java code. UniXcoder use RoBERTa-based model. The project involves preprocessing Java files, training the model, and evaluating it on incomplete code snippets.
 

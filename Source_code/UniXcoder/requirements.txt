@@ -1,0 +1,9 @@
+
+### `requirements.txt`
+
+```plaintext
+torch
+transformers
+tqdm
+javalang
+numpy

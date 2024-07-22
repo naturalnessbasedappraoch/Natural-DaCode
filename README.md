@@ -1,3 +1,4 @@
+![Class Hierarchy Diagram](codeparrot_cover.png)
 # Java Code Completion
 
 This repository contains scripts to train and evaluate a Java code completion model using GPT-2 architecture. The project is divided into four main parts: dataset preparation, tokenizer training, model training, and model evaluation.

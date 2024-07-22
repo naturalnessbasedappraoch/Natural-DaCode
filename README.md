@@ -77,9 +77,9 @@ This script converts .java files to a single .txt file, formatting the content a
 ```sh
 python java_to_txt.py --input_dir path/to/java/files --output_file output.txt
 ```
-###run.py
+### run.py
 This script handles the training, evaluation, and testing of the RoBERTa-based model.
-
+```sh
 Arguments:
 
 --output_dir: Directory to save model checkpoints and outputs.
@@ -99,6 +99,7 @@ Arguments:
 --gradient_accumulation_steps: Gradient accumulation steps.
 --no_cuda: Flag to disable CUDA.
 --seed: Random seed for initialization.
+```
 ```sh
 python run.py --output_dir output --train_dir preprocessed_data --dev_dir preprocessed_data --test_dir preprocessed_data --test_output test_output.txt --do_train --do_eval --do_test --train_batch_size 8 --eval_batch_size 8 --num_train_epochs 3
 ```

@@ -109,6 +109,25 @@ python run.py --output_dir output --train_dir preprocessed_data --dev_dir prepro
 
 This repository contains scripts to train and evaluate a Java code completion model using GPT-2 architecture. The project is divided into four main parts: dataset preparation, tokenizer training, model training, and model evaluation.
 
+## Table of Contents
+
+- [Directory Structure](#directory-structure)
+- [Setup](#setup)
+  - [1. Clone the Repository](#1-clone-the-repository)
+  - [2. Create a Virtual Environment and Install Dependencies](#2-create-a-virtual-environment-and-install-dependencies)
+  - [3. Place Java Files](#3-place-java-files)
+- [Usage](#usage)
+  - [1. Prepare the Dataset](#1-prepare-the-dataset)
+  - [2. Train the Tokenizer](#2-train-the-tokenizer)
+  - [3. Train the Model](#3-train-the-model)
+  - [4. Evaluate the Model](#4-evaluate-the-model)
+- [Scripts](#scripts)
+  - [prepare_java_dataset.py](#prepare_java_datasetpy)
+  - [train_java_tokenizer.py](#train_java_tokenizerpy)
+  - [train_java_model.py](#train_java_modelpy)
+  - [evaluate_model.py](#evaluate_modelpy)
+- [License](#license)
+
 ## Directory Structure
 
 

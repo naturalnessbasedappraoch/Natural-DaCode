@@ -1,0 +1,10 @@
+[
+    {
+        "input": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(",
+        "output": "\"Hello, World!\");\n    }\n}\n"
+    },
+    {
+        "input": "public class Calculator {\n    public int add(int a, int b) {\n        return ",
+        "output": "a + b;\n    }\n}\n"
+    }
+]

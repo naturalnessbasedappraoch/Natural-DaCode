@@ -248,17 +248,6 @@ This project preprocesses Java files, trains a language model using n-grams, and
     ./bin/train.py evaluation/data/sample_project 3
     ```
     - `3` denotes the order of n-grams.
-    - This will create:
-        ```
-        | evaluation
-            | data
-                | sample_project
-                    | files
-                    | fold0.test
-                    | fold0.train.3grams
-                    | ...
-                    | fold9.test
-                    | fold9.train.3grams
         ```
 
 ## Testing

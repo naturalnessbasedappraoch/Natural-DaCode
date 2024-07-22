@@ -50,7 +50,7 @@ Convert Java files into a single text file with the `java_to_txt.py` script.
 
 ```sh
 python java_to_txt.py --input_dir path/to/java/files --output_file train.txt
-
+```
 
 ![Class Hierarchy Diagram](codeparrot_cover.png)
 # Codeparrot as CodecompletionModel

@@ -52,8 +52,9 @@ Convert Java files into a single text file with the `java_to_txt.py` script.
 python java_to_txt.py --input_dir path/to/java/files --output_file train.txt
 ```
 
-![Class Hierarchy Diagram](codeparrot_cover.png)
 # Codeparrot as CodecompletionModel
+![Class Hierarchy Diagram](codeparrot_cover.png)
+
 
 This repository contains scripts to train and evaluate a Java code completion model using GPT-2 architecture. The project is divided into four main parts: dataset preparation, tokenizer training, model training, and model evaluation.
 

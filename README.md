@@ -34,11 +34,21 @@ This repository contains scripts to train and evaluate a Java code completion mo
 
 Run the dataset preparation script to read `.java` files, remove duplicates, and save the cleaned dataset.
 
-```sh
+
 python prepare_java_dataset.py
+
 ### 2. Train the Tokenizer
+Train a new tokenizer using the contaminated dataset.
 python train_java_tokenizer.py
 
 ### 3. Train the Model
+Train the language model using the tokenizer and dataset.
 python train_java_model.py --output_dir codeparrot_java_model --num_train_epochs 3 --per_device_train_batch_size 4 --save_steps 1000 --eval_steps 1000 --logging_dir logs
+
+Alternatively, you can use the shell script to run the entire process:
+bash run_java_training.sh
+
+### 4. Evaluate the Model
+Evaluate the trained model on both datasets(contaminated and cleaned).
+python evaluate_model.py
 

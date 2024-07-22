@@ -1,4 +1,4 @@
-# A Naturalness-based Approach For codecomplemodels to distinguish CTdata and CLdata
+# A Naturalness-based Approach For codecompletionmodels to distinguish CTdata and CLdata
 ![Class Hierarchy Diagram](codeparrot_cover.png)
 # Codeparrot as CodecompletionModel
 

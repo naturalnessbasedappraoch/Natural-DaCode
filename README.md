@@ -5,6 +5,9 @@ This repository contains scripts to train and evaluate a Java code completion mo
 ## Directory Structure
 
 
+![Class Hierarchy Diagram](codeparrot.PNG)
+
+
 ## Setup
 
 1. **Clone the Repository**: Clone the repository and navigate to the project directory.

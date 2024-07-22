@@ -33,8 +33,8 @@ This repository contains scripts and instructions for training a RoBERTa-based m
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/roberta-code-completion.git
-    cd roberta-code-completion
+    git clone https://github.com/naturalnessbasedappraoch/A-naturalnessbasedappraoch-for-Contamination-Detection-.git
+    cd UniXcoder
     ```
 
 2. Install the required packages:

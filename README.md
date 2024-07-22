@@ -51,6 +51,26 @@ Convert Java files into a single text file with the `java_to_txt.py` script.
 ```sh
 python java_to_txt.py --input_dir path/to/java/files --output_file train.txt
 ```
+### 2. Preprocess Text Files
+Preprocess the text files to tokenize and format the data using preprocess.py.
+```sh
+python preprocess.py --base_dir . --output_dir preprocessed_data
+```
+### 3. Train the Model
+Train the model using the run.py script. Make sure to specify the directories containing the preprocessed files
+```sh
+python run.py --output_dir output --train_dir preprocessed_data --dev_dir preprocessed_data --do_train --train_batch_size 8 --num_train_epochs 3
+```
+### 4. Evaluate the Model
+Evaluate the model on the validation set.
+```sh
+python run.py --output_dir output --dev_dir preprocessed_data --do_eval --eval_batch_size 8
+```
+### 5. Test the Model
+Test the model with incomplete code snippets.
+```sh
+python run.py --output_dir output --test_dir preprocessed_data --test_output test_output.txt --do_test --eval_batch_size 8
+```
 
 # Codeparrot as CodecompletionModel
 ![Class Hierarchy Diagram](codeparrot_cover.png)

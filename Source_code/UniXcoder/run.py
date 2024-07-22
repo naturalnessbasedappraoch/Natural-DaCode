@@ -4,48 +4,40 @@ import logging
 import argparse
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, Dataset, RandomSampler, SequentialSampler, TensorDataset
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, TensorDataset
 from transformers import (RobertaConfig, RobertaTokenizer, RobertaModel, AdamW, get_linear_schedule_with_warmup)
 from tqdm import tqdm
 import json
 import re
 import multiprocessing
 
+# Importing the external scripts
+from java_to_txt import process_directory, write_to_file, format_file
+from preprocess import preprocess
+
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class Example(object):
-    def __init__(self, idx, source, target):
+class Example:
+    def __init__(self, idx, source):
         self.idx = idx
         self.source = source
-        self.target = target
 
-def read_examples(filename):
+def read_examples_from_txt(filename):
     examples = []
     with open(filename, encoding="utf-8") as f:
         for idx, line in enumerate(f):
-            js = json.loads(line)
-            inputs = js["input"].replace("<EOL>", "</s>").split()
-            inputs = " ".join(inputs[1:])
-            outputs = js["gt"]
-            examples.append(Example(idx=idx, source=inputs, target=outputs))
+            line = line.strip()
+            if line:
+                examples.append(Example(idx=idx, source=line))
     return examples
 
-class InputFeatures(object):
+class InputFeatures:
     def __init__(self, example_id, source_ids):
         self.example_id = example_id
         self.source_ids = source_ids
-
-def post_process(code):
-    code = code.replace("<string", "<STR_LIT").replace("<number", "<NUM_LIT").replace("<char", "<CHAR_LIT")
-    code = code.replace("<NUM_LIT>", "0").replace("<STR_LIT>", "").replace("<CHAR_LIT>", "")
-    pattern = re.compile(r"<(STR|NUM|CHAR)_LIT:(.*?)>", re.S)
-    lits = re.findall(pattern, code)
-    for lit in lits:
-        code = code.replace(f"<{lit[0]}_LIT:{lit[1]}>", lit[1])
-    return code
 
 def tokenize(item):
     source, max_length, tokenizer = item
@@ -76,7 +68,7 @@ def set_seed(seed=42):
     torch.cuda.manual_seed(seed)
     torch.backends.cudnn.deterministic = True
 
-class Seq2Seq(nn.Module):
+class Seq2Seq(torch.nn.Module):
     def __init__(self, encoder, decoder, config, beam_size, max_length, sos_id, eos_id):
         super(Seq2Seq, self).__init__()
         self.encoder = encoder
@@ -91,22 +83,27 @@ class Seq2Seq(nn.Module):
         outputs = self.encoder(input_ids=source_ids)
         hidden_states = outputs[0]
         if is_train:
-            # Define your training process
             pass
         else:
-            # Define your inference process
             pass
         return hidden_states
+
+def generate_code(model, tokenizer, source_ids, device, max_length):
+    model.eval()
+    source_ids = source_ids.unsqueeze(0).to(device)  # Add batch dimension and move to device
+    generated_ids = model.generate(source_ids, max_length=max_length, num_beams=5, early_stopping=True)
+    generated_code = tokenizer.decode(generated_ids[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
+    return generated_code
 
 def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--output_dir", default=None, type=str, required=True,
                         help="The output directory where the model predictions and checkpoints will be written.")
-    parser.add_argument("--train_filename", default=None, type=str, help="The train filename. Should contain the .jsonl files for this task.")
-    parser.add_argument("--dev_filename", default=None, type=str, help="The dev filename. Should contain the .jsonl files for this task.")
-    parser.add_argument("--test_filename", default=None, type=str, help="The test filename. Should contain the .jsonl files for this task.")
-    
+    parser.add_argument("--train_dir", default=None, type=str, help="The directory containing .java files for training.")
+    parser.add_argument("--dev_dir", default=None, type=str, help="The directory containing .java files for dev.")
+    parser.add_argument("--test_dir", default=None, type=str, help="The directory containing .java files for test.")
+    parser.add_argument("--test_output", default=None, type=str, help="The file containing the expected outputs for testing.")
     parser.add_argument("--max_source_length", default=64, type=int, help="The maximum total source sequence length after tokenization. Sequences longer will be truncated, sequences shorter will be padded.")
     parser.add_argument("--max_target_length", default=32, type=int, help="The maximum total target sequence length after tokenization. Sequences longer will be truncated, sequences shorter will be padded.")
     parser.add_argument("--do_train", action='store_true', help="Whether to run training.")
@@ -130,6 +127,22 @@ def main():
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
+    # Convert .java files to text
+    java_files = process_directory(args.train_dir)
+    write_to_file(java_files, 'train.txt')
+    format_file('train.txt', 'formatted_train.txt')
+    preprocess(args, 'formatted_train.txt', 'train')
+
+    java_files = process_directory(args.dev_dir)
+    write_to_file(java_files, 'dev.txt')
+    format_file('dev.txt', 'formatted_dev.txt')
+    preprocess(args, 'formatted_dev.txt', 'dev')
+
+    java_files = process_directory(args.test_dir)
+    write_to_file(java_files, 'test.txt')
+    format_file('test.txt', 'formatted_test.txt')
+    preprocess(args, 'formatted_test.txt', 'test')
+
     config = RobertaConfig(
         vocab_size=50265,
         max_position_embeddings=514,
@@ -142,7 +155,7 @@ def main():
     
     model = Seq2Seq(encoder=encoder, decoder=encoder, config=config,
                     beam_size=args.beam_size, max_length=args.max_target_length,
-                    sos_id=tokenizer.cls_token_id, eos_id=[tokenizer.sep_token_id])
+                    sos_id=tokenizer.cls_token_id, eos_id=tokenizer.sep_token_id)
 
     model.to(device)
 
@@ -150,7 +163,7 @@ def main():
         model = torch.nn.DataParallel(model)
 
     if args.do_train:
-        train_examples = read_examples(args.train_filename)
+        train_examples = read_examples_from_txt('formatted_train.txt')
         train_features = convert_examples_to_features(train_examples, tokenizer, args, stage='train')
         all_source_ids = torch.tensor([f.source_ids for f in train_features], dtype=torch.long)
         train_data = TensorDataset(all_source_ids)
@@ -180,7 +193,7 @@ def main():
                 scheduler.step()
 
     if args.do_eval:
-        eval_examples = read_examples(args.dev_filename)
+        eval_examples = read_examples_from_txt('formatted_dev.txt')
         eval_features = convert_examples_to_features(eval_examples, tokenizer, args, stage='dev')
         all_source_ids = torch.tensor([f.source_ids for f in eval_features], dtype=torch.long)
         eval_data = TensorDataset(all_source_ids)
@@ -198,7 +211,7 @@ def main():
                     loss = loss.mean()
 
     if args.do_test:
-        test_examples = read_examples(args.test_filename)
+        test_examples = read_examples_from_txt('formatted_test.txt')
         test_features = convert_examples_to_features(test_examples, tokenizer, args, stage='test')
         all_source_ids = torch.tensor([f.source_ids for f in test_features], dtype=torch.long)
         test_data = TensorDataset(all_source_ids)
@@ -206,12 +219,22 @@ def main():
         test_dataloader = DataLoader(test_data, sampler=test_sampler, batch_size=args.eval_batch_size)
 
         model.eval()
+        predictions = []
         for batch in test_dataloader:
             batch = tuple(t.to(device) for t in batch)
             source_ids = batch[0]
             with torch.no_grad():
-                outputs = model(source_ids)
-                # Process predictions
+                generated_code = generate_code(model, tokenizer, source_ids, device, args.max_target_length)
+                predictions.append(generated_code)
+
+        # Read expected output for comparison
+        expected_outputs = read_examples_from_txt(args.test_output)
+
+        # Evaluate predictions
+        for pred, expected in zip(predictions, expected_outputs):
+            print(f"Generated: {pred}")
+            print(f"Expected: {expected.source}")
+            print()
 
 if __name__ == "__main__":
     main()

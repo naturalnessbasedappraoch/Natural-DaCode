@@ -36,9 +36,9 @@ Run the dataset preparation script to read `.java` files, remove duplicates, and
 
 ```sh
 python prepare_java_dataset.py
-**### 2. Train the Tokenizer**
+### 2. Train the Tokenizer
 python train_java_tokenizer.py
 
-**### 3. Train the Model**
+### 3. Train the Model
 python train_java_model.py --output_dir codeparrot_java_model --num_train_epochs 3 --per_device_train_batch_size 4 --save_steps 1000 --eval_steps 1000 --logging_dir logs
 

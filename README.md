@@ -121,12 +121,6 @@ This repository contains scripts to train and evaluate a Java code completion mo
   - [2. Train the Tokenizer](#2-train-the-tokenizer)
   - [3. Train the Model](#3-train-the-model)
   - [4. Evaluate the Model](#4-evaluate-the-model)
-- [Scripts](#scripts)
-  - [prepare_java_dataset.py](#prepare_java_datasetpy)
-  - [train_java_tokenizer.py](#train_java_tokenizerpy)
-  - [train_java_model.py](#train_java_modelpy)
-  - [evaluate_model.py](#evaluate_modelpy)
-- [License](#license)
 
 ## Directory Structure
 

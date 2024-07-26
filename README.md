@@ -1,5 +1,5 @@
 # A Naturalness-based Approach For codecompletionmodels to distinguish CTdata and CLdata
-![Overview](overview.png)
+![Overview](Overview.png)
 
 # Code Completion with UniXcoder
 

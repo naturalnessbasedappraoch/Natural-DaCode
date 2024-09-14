@@ -1,6 +1,3 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT License.
-
 import os
 import argparse
 import re
@@ -74,7 +71,7 @@ def preprocess(args, file_name, file_type):
         data = "<s> " + " ".join(new_data) + " </s>"
         wf.write(data+"\n")
     
-    print(f"{file_type} are done")
+    print(f"{file_type} is done")
     wf.close()
 
 def main():
@@ -88,9 +85,8 @@ def main():
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
+    # Only preprocess the train file
     preprocess(args, file_name="train.txt", file_type="train")
-    preprocess(args, file_name="dev.txt", file_type="dev")
-    preprocess(args, file_name="test.txt", file_type="test")
 
 if __name__ == "__main__":
     main()

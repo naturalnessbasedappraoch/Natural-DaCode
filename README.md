@@ -78,15 +78,20 @@ python run.py \
     --num_train_epochs 10
 
 ```
-### 4. Evaluate the Model
-Evaluate the model on the validation set.
-```sh
-python run.py --output_dir output --dev_dir preprocessed_data --do_eval --eval_batch_size 8
-```
-### 5. Test the Model
+### 4. Test the Model
 Test the model with incomplete code snippets.
 ```sh
-python run.py --output_dir output --test_dir preprocessed_data --test_output test_output.txt --do_test --eval_batch_size 8
+python run.py \
+	--do_test \
+	--lang java \
+	--model_name_or_path roberta-base \
+	--load_model_path saved_models/javaCorpus/checkpoint-best-acc/pytorch_model.bin \
+	--test_filename dataset/javaCorpus/test.json \
+  --output_dir saved_models/javaCorpus \
+  --max_source_length 936 \
+  --max_target_length 64 \
+  --beam_size 5 \
+  --eval_batch_size 328
 ```
 ## Scripts
 ### java_to_txt.py

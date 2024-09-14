@@ -60,7 +60,23 @@ python preprocess.py --base_dir . --output_dir preprocessed_data
 ### 3. Train the Model
 Train the model using the run.py script. Make sure to specify the directories containing the preprocessed files
 ```sh
-python run.py --output_dir output --train_dir preprocessed_data --dev_dir preprocessed_data --do_train --train_batch_size 8 --num_train_epochs 3
+python run.py \
+    --do_train \
+    --do_eval \
+    --lang java \
+    --model_name_or_path roberta-base \
+    --train_filename dataset/javaCorpus/train.txt \
+    --dev_filename dataset/javaCorpus/dev.json \
+    --output_dir saved_models/javaCorpus \
+    --max_source_length 936 \
+    --max_target_length 64 \
+    --beam_size 5 \
+    --train_batch_size 32 \
+    --gradient_accumulation_steps 1 \
+    --eval_batch_size 32 \
+    --learning_rate 2e-5 \
+    --num_train_epochs 10
+
 ```
 ### 4. Evaluate the Model
 Evaluate the model on the validation set.

@@ -3,19 +3,22 @@ import json
 from tqdm import tqdm
 
 # Directory containing Java files
-JAVA_FILES_DIR = 'data/java_files'
+JAVA_FILES_DIR = r"E:\80k_training\80k"
 
 # Output directory for cleaned data
-CLEANED_DATA_DIR = 'cleaned_data_java'
+CLEANED_DATA_DIR = "data/"
 
 def read_java_files(directory):
     java_files = []
     for root, _, files in os.walk(directory):
-        for file in files:
+        for file in tqdm(files, desc="Reading files"):
             if file.endswith(".java"):
                 file_path = os.path.join(root, file)
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    java_files.append(f.read())
+                try:
+                    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                        java_files.append(f.read())
+                except Exception as e:
+                    print(f"Error reading {file_path}: {e}")
     return java_files
 
 def remove_duplicates(data):

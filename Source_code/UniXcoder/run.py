@@ -11,10 +11,6 @@ import json
 import re
 import multiprocessing
 
-# Importing the external scripts
-from java_to_txt import process_directory, write_to_file, format_file
-from preprocess import preprocess
-
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt='%m/%d/%Y %H:%M:%S',
                     level=logging.INFO)
@@ -100,9 +96,9 @@ def main():
 
     parser.add_argument("--output_dir", default=None, type=str, required=True,
                         help="The output directory where the model predictions and checkpoints will be written.")
-    parser.add_argument("--train_dir", default=None, type=str, help="The directory containing .java files for training.")
-    parser.add_argument("--dev_dir", default=None, type=str, help="The directory containing .java files for dev.")
-    parser.add_argument("--test_dir", default=None, type=str, help="The directory containing .java files for test.")
+    parser.add_argument("--train_dir", default=None, type=str, help="The file containing .txt files for training.")
+    parser.add_argument("--dev_dir", default=None, type=str, help="The file containing .txt files for dev.")
+    parser.add_argument("--test_dir", default=None, type=str, help="The file containing .txt files for test.")
     parser.add_argument("--test_output", default=None, type=str, help="The file containing the expected outputs for testing.")
     parser.add_argument("--max_source_length", default=64, type=int, help="The maximum total source sequence length after tokenization. Sequences longer will be truncated, sequences shorter will be padded.")
     parser.add_argument("--max_target_length", default=32, type=int, help="The maximum total target sequence length after tokenization. Sequences longer will be truncated, sequences shorter will be padded.")
@@ -127,22 +123,6 @@ def main():
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
-    # Convert .java files to text
-    java_files = process_directory(args.train_dir)
-    write_to_file(java_files, 'train.txt')
-    format_file('train.txt', 'formatted_train.txt')
-    preprocess(args, 'formatted_train.txt', 'train')
-
-    java_files = process_directory(args.dev_dir)
-    write_to_file(java_files, 'dev.txt')
-    format_file('dev.txt', 'formatted_dev.txt')
-    preprocess(args, 'formatted_dev.txt', 'dev')
-
-    java_files = process_directory(args.test_dir)
-    write_to_file(java_files, 'test.txt')
-    format_file('test.txt', 'formatted_test.txt')
-    preprocess(args, 'formatted_test.txt', 'test')
-
     config = RobertaConfig(
         vocab_size=50265,
         max_position_embeddings=514,
@@ -154,7 +134,7 @@ def main():
     encoder = RobertaModel(config)  # Initialize Roberta model from scratch
     
     model = Seq2Seq(encoder=encoder, decoder=encoder, config=config,
-                    beam_size=args.beam_size, max_length=args.max_target_length,
+                    beam_size=5, max_length=args.max_target_length,
                     sos_id=tokenizer.cls_token_id, eos_id=tokenizer.sep_token_id)
 
     model.to(device)
@@ -163,7 +143,7 @@ def main():
         model = torch.nn.DataParallel(model)
 
     if args.do_train:
-        train_examples = read_examples_from_txt('formatted_train.txt')
+        train_examples = read_examples_from_txt(args.train_dir)
         train_features = convert_examples_to_features(train_examples, tokenizer, args, stage='train')
         all_source_ids = torch.tensor([f.source_ids for f in train_features], dtype=torch.long)
         train_data = TensorDataset(all_source_ids)
@@ -193,7 +173,7 @@ def main():
                 scheduler.step()
 
     if args.do_eval:
-        eval_examples = read_examples_from_txt('formatted_dev.txt')
+        eval_examples = read_examples_from_txt(args.dev_dir)
         eval_features = convert_examples_to_features(eval_examples, tokenizer, args, stage='dev')
         all_source_ids = torch.tensor([f.source_ids for f in eval_features], dtype=torch.long)
         eval_data = TensorDataset(all_source_ids)
@@ -211,7 +191,7 @@ def main():
                     loss = loss.mean()
 
     if args.do_test:
-        test_examples = read_examples_from_txt('formatted_test.txt')
+        test_examples = read_examples_from_txt(args.test_dir)
         test_features = convert_examples_to_features(test_examples, tokenizer, args, stage='test')
         all_source_ids = torch.tensor([f.source_ids for f in test_features], dtype=torch.long)
         test_data = TensorDataset(all_source_ids)

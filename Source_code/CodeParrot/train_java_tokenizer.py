@@ -1,9 +1,10 @@
-from transformers import GPT2Tokenizer, AutoTokenizer
+import json
+from transformers import GPT2Tokenizer
 from datasets import load_dataset
 from tqdm import tqdm
 
 # Load the cleaned dataset
-dataset = load_dataset("json", data_files="cleaned_data_java/cleaned_dataset.json", split="train", streaming=True)
+dataset = load_dataset("json", data_files="data/cleaned_dataset.json", split="train", streaming=True)
 
 # Base tokenizer
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
@@ -17,5 +18,5 @@ def batch_iterator(batch_size=10):
 new_tokenizer = tokenizer.train_new_from_iterator(batch_iterator(), vocab_size=50257)
 
 # Save the tokenizer
-new_tokenizer.save_pretrained("codeparrot-java-tokenizer")
+new_tokenizer.save_pretrained("models/codeparrot-java-tokenizer")
 print("Tokenizer trained and saved.")

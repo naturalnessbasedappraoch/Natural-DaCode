@@ -72,7 +72,7 @@ if __name__ == "__main__":
     output_file = input("Enter the path to the output .txt file: ")
 
     # Temporary file to store intermediate results
-    javatextfile = "javatextfile.txt"
+    javatextfile = "Train.txt"
 
     # Step 1: Convert .java files to one .txt file
     java_files = process_directory(input_directory)

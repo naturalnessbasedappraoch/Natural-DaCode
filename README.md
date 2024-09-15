@@ -12,28 +12,28 @@ dataset/
 │
 ├── Train Dataset (for Code Completion Model)/
 │   ├── UniXcoder/
-│   │   ├── train1.java
-│   │   ├── train2.java
+│   │   ├── file1.java
+│   │   ├── file2.java
 │   │   └── ...
 │   └── CodeParrot Training Data/
-│       ├── train1.java
-│       ├── train2.java
+│       ├── file1.java
+│       ├── file2.java
 │       └── ...
 │
 ├── N-gram Train Dataset (for N-gram Model)/
-│   ├── ngram_train1.java
-│   ├── ngram_train2.java
+│   ├── file1.java
+│   ├── file2.java
 │   └── ...
 │
 └── Test Dataset (for Code Completion and N-gram Models)/
     ├── UniXcoder and CodeParrot/
     │   ├── CLdata/
-    │   │   ├── CLtest1.java
-    │   │   ├── CLtest2.java
+    │   │   ├── file1.java
+    │   │   ├── file2.java
     │   │   └── ...
     │   └── CTdata/
-    │       ├── CTtest1.java
-    │       ├── CTtest2.java
+    │       ├── file1.java
+    │       ├── file2.java
     │       └── ...
 
 ### 1. `Train Dataset (for Code Completion Model)`

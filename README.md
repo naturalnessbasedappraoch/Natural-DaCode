@@ -47,8 +47,8 @@ dataset/
     │       ├── file2.java
     │       └── ...
     ├── UniXcoder and CodeParrot/
-            │   ├── CLdata.json/
-            │   └── CTdata.json/
+            ├── CLdata.json/
+            ├── CTdata.json/
 ```
 ### 1. Train Dataset (for Code Completion Model)
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.

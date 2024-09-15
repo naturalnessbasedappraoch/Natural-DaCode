@@ -1,8 +1,8 @@
 # Has My Code Been Stolen for Model Training? A Naturalness-Based Approach to Code Contamination Detection
-```
+
 ![Overview](Overview.PNG)
 
-```
+
 
 This repository contains the code, datasets, and resources for the research paper **"Has My Code Been Stolen for Model Training? A Naturalness-Based Approach to Code Contamination Detection"**. The proposed method, **Natural-DaCoDe**, uses naturalness scores of source code to detect whether a given piece of code has been used to train deep learning models, particularly code completion models.
 

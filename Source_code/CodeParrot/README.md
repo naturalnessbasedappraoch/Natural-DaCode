@@ -1,7 +1,7 @@
 # Code Completion with Codeparrot
 ![CodeParrot](codeparrot_cover.png)
 
-This repository contains scripts to train and evaluate a Java code completion model using the GPT-2 architecture. The project involves dataset preparation, tokenizer training, model training, and evaluation.
+This repository contains scripts to train and evaluate a Java code completion model using the CodeParrot architecture. The project involves dataset preparation, tokenizer training, model training, and evaluation.
 
 ## Table of Contents
 - [Directory Structure](#directory-structure)

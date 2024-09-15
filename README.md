@@ -35,10 +35,11 @@ dataset/
     │       ├── file1.java
     │       ├── file2.java
     │       └── ...
-
+```
 ### 1. Train Dataset (for Code Completion Model)
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.
-![Testing Dataset](DatasetGraph.PNG)
+
+![TestingDataset](DatasetGraph.PNG)
 - **`UniXcoder/CodeParrot Training Data`**: 
     - Contains Java files that are used to train the UniXcoder model.
     - Example files: `file1.java`, `file2.java`, etc.

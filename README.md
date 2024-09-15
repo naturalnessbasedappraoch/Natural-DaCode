@@ -16,7 +16,7 @@ The objective of this project is to provide a novel approach to detecting data c
 
 ## Directory Structure
 
-This section provides an overview of the repository structure, including datasets, extra material from the paper, and the source code of the Code Completion models: [UniXcoder](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/UniXcoder), [CodeParrot](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/CodeParrot), and [Ngram Model](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/n-gram_cachelm).
+This section provides an overview of the repository structure, including datasets, and the source code of the Code Completion models self-training: [UniXcoder](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/UniXcoder), [CodeParrot](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/CodeParrot), and [Ngram Model](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/n-gram_cachelm).
 ![Overview](directories.PNG)
 
 # Dataset for Code Completion and N-gram Models
@@ -113,6 +113,9 @@ Due to size limits, the dataset has been uploaded to Google Drive. You can downl
 
 - [Download Dataset from Google Drive](https://drive.google.com/file/d/17K12pXvbPytSzSRPzBlPK6GfulJHsbWg/view?usp=sharing)
 
+# Contamination Detection
+After computing the performance and naturalness of CTdata and CLdata. Train the SVM classifier with these inputs, and the output is source (Contaminated or Cleaned)
+using code SVM.py
 ## License
 
 

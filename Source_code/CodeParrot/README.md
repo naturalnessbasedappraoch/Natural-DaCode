@@ -30,8 +30,8 @@ The project uses the following directory structure:
 1. **Clone the Repository**: Clone the repository and navigate to the project directory.
 
     ```sh
-    git clone https://github.com/yourusername/java-code-completion.git
-    cd java-code-completion
+    git clone https://github.com/naturalnessbasedappraoch/Natural-DaCode.git
+    cd Natural-DaCode/Source_code/CodeParrot
     ```
 
 2. **Create a Virtual Environment and Install Dependencies**: Create a virtual environment and install the required dependencies.

@@ -13,12 +13,12 @@ This folder contains the training datasets for two different code-completion mod
 
 - **`UniXcoder/CodeParrot Training Data`**: 
     - Contains Java files that are used to train the UniXcoder model.
-    - Example files: `train1.java`, `train2.java`, etc.
+    - Example files: `file1.java`, `file2.java`, etc.
     
 ### 2. `Train Dataset (for N-gram Model)`
 This folder contains the data used to train the n-gram model. It includes various Java files:
 
-- Example files: `ngram_train1.java`, `ngram_train2.java`, etc.
+- Example files: `file1.java`, `file2.java`, etc.
 
 
 ### 3. `Test Dataset (for Code Completion and Ngram Models)`
@@ -26,28 +26,30 @@ This folder contains the test datasets for both **(UniXcoder** and **CodeParrot)
 
 - **`CLdata/`** (Cleaned Data):
     - Contains clean Java files that were not part of the model training data.
-    - Example files: `CLtest1.java`, `CLtest2.java`, etc.
+    - Example files: `file1.java`, `file2.java`, etc.
   
 - **`CTdata/`** (Contaminated Data):
     - Contains Java files that were part of the model training data.
-    - Example files: `CTtest1.java`, `CTtest2.java`, etc.
+    - Example files: `file1.java`, `file2.java`, etc.
 
 
 ## Usage Instructions
 
 - **Train Dataset**: Use the files in the `Train Dataset (for Code Completion Model)` folder for training the UniXcoder and CodeParrot models.
-- **Test Dataset**: Use the files in the `Test Dataset (for Code Completion Model)` folder to evaluate the models. The `CLdata` folder contains clean test data, while the `CTdata` folder contains contaminated test data.
 - **N-gram Train Dataset**: The `N-gram Train Dataset` folder contains the data required to train an n-gram model, which is used for code naturalness evaluation.
+- **Test Dataset**: To evaluate, use the files in the `Test Dataset for Code Completion Models(UniXcoder, CodeParrot, ChatGPT3.5 and Claude) and Ngram Model`. The `CLdata` folder contains clean test data, while the `CTdata` folder contains contaminated test data.
+
 
 ## Preprocessing
 
 If needed, the datasets can be preprocessed using scripts found in the `src/` folder of the repository (e.g., for tokenizing the Java files or cleaning the data).
 
-## External Datasets
+Due to size limits, the dataset has been uploaded to Google Drive. You can download the dataset using the following link:
 
-If the dataset size exceeds the GitHub repository limits or is unavailable here, you can find the relevant links to download them in the `external_links.md` file.
+- [Download Dataset from Google Drive](https://drive.google.com/file/d/17K12pXvbPytSzSRPzBlPK6GfulJHsbWg/view?usp=sharing)
 
 ## License
+
 
 This dataset is shared under the MIT license. For more details, refer to the `LICENSE` file in the main repository.
 

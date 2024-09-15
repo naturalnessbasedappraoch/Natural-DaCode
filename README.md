@@ -4,7 +4,7 @@
 
 # Dataset for Code Completion and N-gram Models
 <p align="center">
-    <img src="DatasetGraph.PNG" alt="TestingDataset" width="500">
+    <img src="DatasetGraph.PNG" alt="TestingDataset" width="600">
 </p>
 
 

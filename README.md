@@ -17,7 +17,7 @@ The objective of this project is to provide a novel approach to detecting data c
 ## Directory Structure
 
 This section provides an overview of the repository structure, including datasets, extra material from the paper, and the source code of the Code Completion models: [UniXcoder](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/UniXcoder), [CodeParrot](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/CodeParrot), and [Ngram Model](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/n-gram_cachelm).
-
+![Overview](directories.PNG)
 
 # Dataset for Code Completion and N-gram Models
 <p align="center">
@@ -27,7 +27,7 @@ This section provides an overview of the repository structure, including dataset
 
 
 This folder contains all the datasets used for training and testing the models in the paper **"Has My Code Been Stolen for Model Training? A Naturalness-Based Approach to Code Contamination Detection"**. The dataset is organized into three main parts: **Train Dataset**, **Testing Dataset**, and **N-gram Train Dataset**.
-![Overview](directories.PNG)
+
 ## Folder Structure
 ```plaintext
 dataset/

@@ -38,7 +38,7 @@ dataset/
 
 ### 1. Train Dataset (for Code Completion Model)
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.
-
+![Testing Dataset](DatasetGraph.PNG)
 - **`UniXcoder/CodeParrot Training Data`**: 
     - Contains Java files that are used to train the UniXcoder model.
     - Example files: `file1.java`, `file2.java`, etc.
@@ -50,6 +50,7 @@ This folder contains the data used to train the n-gram model. It includes variou
 
 
 ### 3. `Test Dataset (for Code Completion and Ngram Models)`
+
 This folder contains the test datasets for both **(UniXcoder** and **CodeParrot)** models and Pretrain models **(ChatGPT3.5 and Claude)**. The test data is split into two categories:
 
 - **`CLdata/`** (Cleaned Data):

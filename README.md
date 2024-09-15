@@ -11,16 +11,14 @@ This folder contains all the datasets used for training and testing the models i
 ### 1. `Train Dataset (for Code Completion Model)`
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.
 
-- **`UniXcoder/`**: 
+- **`UniXcoder/CodeParrot Training Data`**: 
     - Contains Java files that are used to train the UniXcoder model.
     - Example files: `train1.java`, `train2.java`, etc.
     
-- **`CodeParrot Training Data/`**:
-    - Contains Java files that are used to train the CodeParrot model.
-    - Example files: `train1.java`, `train2.java`, etc.
 
-### 2. `Test Dataset (for Code Completion Model)`
-This folder contains the test datasets for both **UniXcoder** and **CodeParrot** models. The test data is split into two categories:
+
+### 2. `Test Dataset (for Code Completion and Ngram Models)`
+This folder contains the test datasets for both **(UniXcoder** and **CodeParrot)** models and Pretrain models **(ChatGPT3.5 and Claude)**. The test data is split into two categories:
 
 - **`CLdata/`** (Cleaned Data):
     - Contains clean Java files that were not part of the model training data.

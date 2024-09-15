@@ -15,7 +15,7 @@ This folder contains the training datasets for two different code-completion mod
     - Contains Java files that are used to train the UniXcoder model.
     - Example files: `train1.java`, `train2.java`, etc.
     
-### 2. `N-gram Train Dataset`
+### 2. `Train Dataset (for N-gram Model)`
 This folder contains the data used to train the n-gram model. It includes various Java files:
 
 - Example files: `ngram_train1.java`, `ngram_train2.java`, etc.

@@ -14,6 +14,9 @@ The objective of this project is to provide a novel approach to detecting data c
 - Provides significant improvements over state-of-the-art approaches like **LOSS Attack** and **Min-K% Prob**.
 - Code and dataset collection for constructing contaminated (𝐶𝑇𝑑𝑎𝑡𝑎) and cleaned (𝐶𝐿𝑑𝑎𝑡𝑎) datasets.
 
+## Directory Structure
+
+This section provides an overview of the repository structure, including datasets, extra material from the paper, and the source code of the Code Completion models: [UniXcoder](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/UniXcoder), [CodeParrot](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/CodeParrot), and [Ngram Model](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/n-gram_cachelm).
 
 
 # Dataset for Code Completion and N-gram Models

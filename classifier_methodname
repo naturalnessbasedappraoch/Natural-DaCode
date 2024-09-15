@@ -1,0 +1,94 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
+from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
+import os
+
+# Load the datasets with generic paths (assuming datasets are in a folder called 'datasets')
+source_contaminated = pd.read_excel(os.path.join('datasets', 'CTdata.xlsx'))
+source_cleaned = pd.read_excel(os.path.join('datasets', 'CLdata.xlsx'))
+
+# Add a column to indicate the source ('Contaminated' and 'Cleaned')
+source_contaminated['Source'] = 'Contaminated'
+source_cleaned['Source'] = 'Cleaned'
+
+# Combine the two datasets (Contaminated and Cleaned)
+combined_data = pd.concat([source_contaminated, source_cleaned])
+
+# Drop rows with missing values
+combined_data = combined_data.dropna()
+
+# Ensure equal number of samples from both classes (Contaminated and Cleaned)
+min_samples = min(len(source_contaminated), len(source_cleaned))  # Find the smaller class size
+source_contaminated_sampled = source_contaminated.sample(n=min_samples, random_state=42)
+source_cleaned_sampled = source_cleaned.sample(n=min_samples, random_state=42)
+
+# Combine the equal number of samples from both sources
+balanced_data = pd.concat([source_contaminated_sampled, source_cleaned_sampled])
+
+# Features to be used for training
+features = ['Method name naturalness', 'Method body Naturalness', 'Method Name Length', 'LOC (Lines of Code)', 'Edit Distance']
+
+# Target (Source: Contaminated or Cleaned)
+target = 'Source'
+
+# Split the data into features (X) and target (y)
+X = balanced_data[features]
+y = balanced_data[target]
+
+# Impute missing values with the mean
+imputer = SimpleImputer(strategy='mean')
+X_imputed = imputer.fit_transform(X)
+
+# Stratified train-test split ensures equal representation of both classes
+X_train, X_test, y_train, y_test = train_test_split(X_imputed, y, test_size=0.2, stratify=y, random_state=42)
+
+# Standardize the feature data
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Use only the RBF kernel for SVM
+print(f"\nEvaluating SVM with RBF kernel:")
+
+# Initialize the SVM model with RBF kernel
+svm_model = SVC(kernel='rbf', probability=True)
+
+# Train the model
+svm_model.fit(X_train_scaled, y_train)
+
+# Predict the source on the test set using the model
+y_pred = svm_model.predict(X_test_scaled)
+y_pred_prob = svm_model.predict_proba(X_test_scaled)[:, 1]  # Probabilities for AUC calculation
+
+# Output the classification report
+print("Classification Report:")
+print(classification_report(y_test, y_pred))
+
+# Confusion Matrix
+conf_matrix = confusion_matrix(y_test, y_pred, labels=['Contaminated', 'Cleaned'])
+TN = conf_matrix[1, 1]  # True Negative (Cleaned correctly identified)
+FP = conf_matrix[0, 1]  # False Positive (Contaminated incorrectly identified as Cleaned)
+FN = conf_matrix[1, 0]  # False Negative (Cleaned incorrectly identified as Contaminated)
+TP = conf_matrix[0, 0]  # True Positive (Contaminated correctly identified)
+
+# Overall Accuracy
+accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+# True Positive Rate (TPR) for class Contaminated
+tpr = TP / (TP + FN)
+
+# False Positive Rate (FPR) for class Contaminated
+fpr = FP / (FP + TN)
+
+# ROC AUC Score for combined classes Contaminated and Cleaned
+y_test_binary = [1 if x == 'Cleaned' else 0 for x in y_test]  # Convert 'Cleaned' to 1 and 'Contaminated' to 0 for binary AUC calculation
+auc = roc_auc_score(y_test_binary, y_pred_prob)
+
+# Print combined results for overall evaluation
+print(f"Accuracy: {accuracy:.4f}")
+print(f"True Positive Rate (TPR): {tpr:.4f}")
+print(f"False Positive Rate (FPR): {fpr:.4f}")
+print(f"AUC: {auc:.4f}")

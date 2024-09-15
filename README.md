@@ -15,24 +15,24 @@ This folder contains all the datasets used for training and testing the models i
 ```plaintext
 dataset/
 │
-├── Train Dataset (for Code Completion Model)/
-│   ├── UniXcoder/
+├── Train Dataset (for Code Completion Model)
+│   ├── UniXcoder Training Data
 │   │   ├── file1.java
 │   │   ├── file2.java
 │   │   └── ...
-│   └── CodeParrot Training Data/
+│   └── CodeParrot Training Data
 │       ├── file1.java
 │       ├── file2.java
 │       └── ...
 │
-├── N-gram Train Dataset (for N-gram Model)/
+├── N-gram Train Dataset (for N-gram Model)
 │   ├── file1.java
 │   ├── file2.java
 │   └── ...
 │
-└── Test Dataset (for N-gram Model)/
-    ├── UniXcoder and CodeParrot/
-    │   ├── CLdata/
+└── Test Dataset (for N-gram Model)
+    ├── ChatGPT3.5, Claude, UniXcoder and CodeParrot Data
+    │   ├── CLdata
     │   │   ├── file1.java
     │   │   ├── file2.java
     │   │   └── ...
@@ -40,19 +40,19 @@ dataset/
     │       ├── file1.java
     │       ├── file2.java
     │       └── ...
-└── Test Dataset (for Code Completion Models)/
-    ├── ChatGPT3.5 and Claude/
-    │   ├── CLdata/
+└── Test Dataset (for Code Completion Models)
+    ├── ChatGPT3.5 and Claude
+    │   ├── CLdata
     │   │   ├── file1.java
     │   │   ├── file2.java
     │   │   └── ...
-    │   └── CTdata/
+    │   └── CTdata
     │       ├── file1.java
     │       ├── file2.java
     │       └── ...
-    ├── UniXcoder and CodeParrot/
-            ├── CLdata.json/
-            ├── CTdata.json/
+    ├── UniXcoder and CodeParrot
+            ├── CLdata.json
+            ├── CTdata.json
 ```
 ### 1. Train Dataset (for Code Completion Model)
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.

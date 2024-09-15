@@ -26,7 +26,7 @@ dataset/
 │   ├── file2.java
 │   └── ...
 │
-└── Test Dataset (for Code Completion and N-gram Models)/
+└── Test Dataset (for N-gram Model)/
     ├── UniXcoder and CodeParrot/
     │   ├── CLdata/
     │   │   ├── file1.java
@@ -36,6 +36,19 @@ dataset/
     │       ├── file1.java
     │       ├── file2.java
     │       └── ...
+└── Test Dataset (for Code Completion Models)/
+    ├── ChatGPT3.5 and Claude/
+    │   ├── CLdata/
+    │   │   ├── file1.java
+    │   │   ├── file2.java
+    │   │   └── ...
+    │   └── CTdata/
+    │       ├── file1.java
+    │       ├── file2.java
+    │       └── ...
+    ├── UniXcoder and CodeParrot/
+            │   ├── CLdata.json/
+            │   └── CTdata.json/
 ```
 ### 1. Train Dataset (for Code Completion Model)
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.

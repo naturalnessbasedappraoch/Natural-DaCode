@@ -3,9 +3,10 @@
 
 
 # Dataset for Code Completion and N-gram Models
-<div style="text-align:center;">
+<p align="center">
     <img src="DatasetGraph.PNG" alt="TestingDataset" width="500">
-</div>
+</p>
+
 
 
 This folder contains all the datasets used for training and testing the models in the paper **"Has My Code Been Stolen for Model Training? A Naturalness-Based Approach to Code Contamination Detection"**. The dataset is organized into three main parts: **Train Dataset**, **Testing Dataset**, and **N-gram Train Dataset**.

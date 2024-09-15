@@ -7,6 +7,34 @@
 This folder contains all the datasets used for training and testing the models in the paper **"Has My Code Been Stolen for Model Training? A Naturalness-Based Approach to Code Contamination Detection"**. The dataset is organized into three main parts: **Train Dataset**, **Testing Dataset**, and **N-gram Train Dataset**.
 
 ## Folder Structure
+```plaintext
+dataset/
+│
+├── Train Dataset (for Code Completion Model)/
+│   ├── UniXcoder/
+│   │   ├── train1.java
+│   │   ├── train2.java
+│   │   └── ...
+│   └── CodeParrot Training Data/
+│       ├── train1.java
+│       ├── train2.java
+│       └── ...
+│
+├── N-gram Train Dataset (for N-gram Model)/
+│   ├── ngram_train1.java
+│   ├── ngram_train2.java
+│   └── ...
+│
+└── Test Dataset (for Code Completion and N-gram Models)/
+    ├── UniXcoder and CodeParrot/
+    │   ├── CLdata/
+    │   │   ├── CLtest1.java
+    │   │   ├── CLtest2.java
+    │   │   └── ...
+    │   └── CTdata/
+    │       ├── CTtest1.java
+    │       ├── CTtest2.java
+    │       └── ...
 
 ### 1. `Train Dataset (for Code Completion Model)`
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.

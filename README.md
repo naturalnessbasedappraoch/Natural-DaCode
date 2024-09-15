@@ -8,17 +8,12 @@ This repository contains the code, datasets, and resources for the research pape
 
 ## Project Overview
 The objective of this project is to provide a novel approach to detecting data contamination in deep learning models. By leveraging the **naturalness** of source code and combining it with the model’s performance, this approach significantly outperforms traditional methods for detecting whether a piece of code has been used for model training.
-
-### Key Contributions:
-- **Naturalness-Based Detection**: Quantitatively measures code naturalness to assess how difficult a code snippet is to predict.
-- **Classifier Approach**: Uses an SVM-based classifier trained on both naturalness and performance metrics for contamination detection.
-- **Evaluated on Large Models**: The approach is evaluated with both open-source models like **UniXcoder** and **CodeParrot**, as well as large pre-trained models like **ChatGPT** and **Claude**.
-
 ## Features
 - Detection of contaminated vs. cleaned datasets using naturalness and model performance.
 - Works for code completion models and method name suggestion tasks.
 - Provides significant improvements over state-of-the-art approaches like **LOSS Attack** and **Min-K% Prob**.
 - Code and dataset collection for constructing contaminated (𝐶𝑇𝑑𝑎𝑡𝑎) and cleaned (𝐶𝐿𝑑𝑎𝑡𝑎) datasets.
+
 
 
 # Dataset for Code Completion and N-gram Models

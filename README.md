@@ -87,7 +87,7 @@ This folder contains the data used to train the n-gram model. It includes variou
 
 ### 3. `Test Dataset (for Code Completion and Ngram Models)`
 
-This folder contains the test datasets for both **(UniXcoder** and **CodeParrot)** models and Pretrain models **(ChatGPT3.5 and Claude)**. The test data is split into two categories:
+This folder contains the test datasets for **(UniXcoder** and **CodeParrot)** and pre-trained models **(ChatGPT3.5 and Claude)**. The test data is split into two categories:
 
 - **`CLdata/`** (Cleaned Data):
     - Contains clean Java files that were not part of the model training data.

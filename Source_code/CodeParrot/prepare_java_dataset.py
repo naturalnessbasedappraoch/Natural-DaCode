@@ -2,11 +2,11 @@ import os
 import json
 from tqdm import tqdm
 
-# Directory containing Java files
-JAVA_FILES_DIR = os.path.join("data", "raw_java_files")
+# Directory containing Java files (you can replace this with a generic relative or absolute path)
+JAVA_FILES_DIR = os.path.join("path", "to", "your", "java_files")
 
-# Output directory for cleaned data
-CLEANED_DATA_DIR = os.path.join("data", "cleaned")
+# Output directory for cleaned data (now saving to "Train_dataset" folder)
+TRAIN_DATASET_DIR = os.path.join("path", "to", "Train_dataset")
 
 def read_java_files(directory):
     java_files = []
@@ -27,7 +27,8 @@ def remove_duplicates(data):
 
 def save_cleaned_data(data, output_dir):
     os.makedirs(output_dir, exist_ok=True)
-    with open(os.path.join(output_dir, "cleaned_dataset.json"), "w") as f:
+    output_file_path = os.path.join(output_dir, "Train_dataset.json")
+    with open(output_file_path, "w") as f:
         for entry in data:
             json.dump({"content": entry}, f)
             f.write("\n")
@@ -41,9 +42,9 @@ def main():
     cleaned_data = remove_duplicates(java_files)
     print(f"Reduced to {len(cleaned_data)} unique Java files.")
 
-    # Save cleaned data
-    save_cleaned_data(cleaned_data, CLEANED_DATA_DIR)
-    print(f"Cleaned data saved to {CLEANED_DATA_DIR}.")
+    # Save cleaned data to "Train_dataset.json"
+    save_cleaned_data(cleaned_data, TRAIN_DATASET_DIR)
+    print(f"Cleaned data saved to {TRAIN_DATASET_DIR} as Train_dataset.json.")
 
 if __name__ == "__main__":
     main()

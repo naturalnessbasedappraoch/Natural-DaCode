@@ -71,9 +71,7 @@ dataset/
             ├── CLdata.json
             ├── CTdata.json
 ```
-## Preprocessing
-
-If needed, the datasets can be preprocessed using scripts found in the `src/` folder of the repository (e.g., for tokenizing the Java files or cleaning the data).
+## Download Dataset
 
 Due to size limits, the dataset has been uploaded to Google Drive. You can download the dataset using the following link:
 
@@ -86,6 +84,9 @@ This folder contains the training datasets for two different code-completion mod
 - **`UniXcoder/CodeParrot Training Data`**: 
     - Contains Java files that are used to train the UniXcoder model.
     - Example files: `file1.java`, `file2.java`, etc.
+    - For details on training these models, refer to the respective repositories:
+        - [UniXcoder](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/UniXcoder)
+        - [CodeParrot](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/CodeParrot)
     
 ### 2. `Train Dataset (for N-gram Model)`
 This folder contains the data used to train the n-gram model. It includes various Java files:

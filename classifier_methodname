@@ -7,7 +7,7 @@ from sklearn.metrics import classification_report, confusion_matrix, roc_auc_sco
 import os
 
 # Load the combined dataset (CLdata + CTdata) with a 'Source' column indicating 'CTdata' or 'CLdata'
-combined_data = pd.read_excel(os.path.join('datasets', 'combined_data.xlsx'))
+combined_data = pd.read_excel(os.path.join('datasets', 'data.xlsx'))
 
 # Check if 'Source' column exists and contains the values 'CTdata' and 'CLdata'
 assert 'Source' in combined_data.columns, "'Source' column is missing from the dataset."

@@ -71,6 +71,14 @@ dataset/
             ├── CLdata.json
             ├── CTdata.json
 ```
+## Preprocessing
+
+If needed, the datasets can be preprocessed using scripts found in the `src/` folder of the repository (e.g., for tokenizing the Java files or cleaning the data).
+
+Due to size limits, the dataset has been uploaded to Google Drive. You can download the dataset using the following link:
+
+- [Download Dataset from Google Drive](https://drive.google.com/file/d/17K12pXvbPytSzSRPzBlPK6GfulJHsbWg/view?usp=sharing)
+  
 ### 1. Train Dataset (for Code Completion Model)
 This folder contains the training datasets for two different code-completion models: **UniXcoder** and **CodeParrot**.
 
@@ -105,13 +113,6 @@ This folder contains the test datasets for **(UniXcoder** and **CodeParrot)** an
 - **Test Dataset**: To evaluate, use the files in the `Test Dataset for Code Completion Models(UniXcoder, CodeParrot, ChatGPT3.5 and Claude) and Ngram Model`. The `CLdata` folder contains clean test data, while the `CTdata` folder contains contaminated test data.
 
 
-## Preprocessing
-
-If needed, the datasets can be preprocessed using scripts found in the `src/` folder of the repository (e.g., for tokenizing the Java files or cleaning the data).
-
-Due to size limits, the dataset has been uploaded to Google Drive. You can download the dataset using the following link:
-
-- [Download Dataset from Google Drive](https://drive.google.com/file/d/17K12pXvbPytSzSRPzBlPK6GfulJHsbWg/view?usp=sharing)
 
 # Contamination Detection
 After computing the performance and naturalness of CTdata and CLdata. Train the SVM classifier with these inputs, and the output is source (Contaminated or Cleaned)

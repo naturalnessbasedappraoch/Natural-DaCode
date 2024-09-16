@@ -54,7 +54,7 @@ python prepare_java_dataset.py
 ```
 ### 2. Train the Tokenizer
 ```sh
-Train a new tokenizer using the contaminated dataset.
+Train a new tokenizer using the Training dataset.
 python train_java_tokenizer.py
 ```
 ### 3. Train the Model

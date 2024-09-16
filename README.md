@@ -1,4 +1,4 @@
-# Has My Code Been Stolen for Model Training? A Naturalness-Based Approach to Code Contamination Detection
+# Replication package for paper "Has My Code Been Stolen for Model Training? A Naturalness-Based Approach to Code Contamination Detection"
 
 ![Overview](Overview.PNG)
 

@@ -92,14 +92,7 @@ This folder contains the training datasets for two different code-completion mod
 This folder contains the data used to train the n-gram model. It includes various Java files:
 
 - Example files: `file1.java`, `file2.java`, etc.
-- ### 2. `Train Dataset (for N-gram Model)`
-
-This folder contains the data required to train the N-gram model. It includes various Java files that serve as the training data:
-
-- Example files: `file1.java`, `file2.java`, etc.
-
 To train the N-gram model, you can use the code provided in the [Ngram Model](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/n-gram_cachelm) repository. Follow the instructions in the repository to preprocess the data and train the model.
-
 
 
 ### 3. `Test Dataset (for Code Completion and Ngram Models)`

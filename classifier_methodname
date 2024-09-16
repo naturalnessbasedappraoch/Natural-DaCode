@@ -17,7 +17,7 @@ assert set(combined_data['Source'].unique()) == {'CTdata', 'CLdata'}, "Source co
 combined_data = combined_data.dropna()
 
 # Features to be used for training
-features = ['Method name naturalness', 'Method body Naturalness', 'Method Name Length', 'LOC (Lines of Code)', 'Edit Distance']
+features = ['Method name naturalness', 'Method body Naturalness', 'Method Name Length', 'Method body Length', 'Edit Distance']
 
 # Target (Source: CTdata or CLdata)
 target = 'Source'

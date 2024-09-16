@@ -3,10 +3,10 @@ import json
 from tqdm import tqdm
 
 # Directory containing Java files
-JAVA_FILES_DIR = r"E:\80k_training\80k"
+JAVA_FILES_DIR = os.path.join("data", "raw_java_files")
 
 # Output directory for cleaned data
-CLEANED_DATA_DIR = "data/"
+CLEANED_DATA_DIR = os.path.join("data", "cleaned")
 
 def read_java_files(directory):
     java_files = []

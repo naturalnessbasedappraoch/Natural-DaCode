@@ -126,7 +126,6 @@ This folder contains the test datasets for **(UniXcoder** and **CodeParrot)** an
 ### 2. **Train the Classifier**
 - Combine the computed performance metrics and naturalness scores with the corresponding java file names.
 - Use these combined inputs to train an SVM classifier. The inputs for training will include:
-  - `File_name`
   - `Performance`
   - `Naturalness`
 

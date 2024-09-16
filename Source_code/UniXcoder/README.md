@@ -23,7 +23,7 @@ This repository contains scripts and instructions for training a RoBERTa-based m
 1. Clone the repository:
     ```sh
     git clone https://github.com/naturalnessbasedappraoch/A-naturalnessbasedappraoch-for-Contamination-Detection-.git
-    cd UniXcoder
+    cd Natural-DaCode/Source_code/UniXcoder
     ```
 2. Install the required packages:
     ```sh

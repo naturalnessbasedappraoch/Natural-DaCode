@@ -22,7 +22,7 @@ This repository contains scripts and instructions for training a RoBERTa-based m
 - Transformers (HuggingFace)
 - tqdm
 - javalang
-- Other dependencies as listed in `requirements.txt`
+- Dependencies as listed in `requirements.txt`
 
 ## Installation
 1. Clone the repository:

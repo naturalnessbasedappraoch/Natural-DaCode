@@ -117,8 +117,27 @@ This folder contains the test datasets for **(UniXcoder** and **CodeParrot)** an
 
 
 # Contamination Detection
-After computing the performance and naturalness of CTdata and CLdata. Train the SVM classifier with these inputs, and the output is source (Contaminated or Cleaned)
-using code SVM.py
+To detect contamination, follow these steps:
+
+1. **Compute Performance and Naturalness:**
+   - **Performance:** Calculate the token-level accuracy from Code Completion Models.
+   - **Naturalness:** Evaluate the naturalness scores for these snippets using the N-gram model.
+
+2. **Train the Classifier:**
+   - Combine the computed performance metrics and naturalness scores with the corresponding java file names.
+   - Use these combined inputs to train an SVM classifier. The inputs for training will include:
+     - `File_name`
+     - `Performance`
+     - `Naturalness`
+
+3. **Predict Contamination Source:**
+   - The trained SVM classifier can then predict whether a given code comes from the contaminated dataset (`CTdata`) or the cleaned dataset (`CLdata`).
+
+4. **Usage:**
+   - To perform contamination detection, use the script `SVM.py` available in the repository. This script handles the training of the SVM classifier and the prediction of the source dataset for new code samples.
+
+Running the script and training the classifier, refer `SVM.py` script.
+
 ## License
 
 

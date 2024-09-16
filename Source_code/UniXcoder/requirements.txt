@@ -1,9 +1,5 @@
-
-### `requirements.txt`
-
-```plaintext
-torch
-transformers
+torch>=1.7.0
+transformers>=4.12.0
 tqdm
 javalang
 numpy

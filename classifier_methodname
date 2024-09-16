@@ -6,37 +6,25 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 import os
 
-# Load the datasets with generic paths (assuming datasets are in a folder called 'datasets')
-source_contaminated = pd.read_excel(os.path.join('datasets', 'CTdata.xlsx'))
-source_cleaned = pd.read_excel(os.path.join('datasets', 'CLdata.xlsx'))
+# Load the combined dataset (CLdata + CTdata) with a 'Source' column indicating 'CTdata' or 'CLdata'
+combined_data = pd.read_excel(os.path.join('datasets', 'combined_data.xlsx'))
 
-# Add a column to indicate the source ('Contaminated' and 'Cleaned')
-source_contaminated['Source'] = 'Contaminated'
-source_cleaned['Source'] = 'Cleaned'
-
-# Combine the two datasets (Contaminated and Cleaned)
-combined_data = pd.concat([source_contaminated, source_cleaned])
+# Check if 'Source' column exists and contains the values 'CTdata' and 'CLdata'
+assert 'Source' in combined_data.columns, "'Source' column is missing from the dataset."
+assert set(combined_data['Source'].unique()) == {'CTdata', 'CLdata'}, "Source column should only contain 'CTdata' and 'CLdata'."
 
 # Drop rows with missing values
 combined_data = combined_data.dropna()
 
-# Ensure equal number of samples from both classes (Contaminated and Cleaned)
-min_samples = min(len(source_contaminated), len(source_cleaned))  # Find the smaller class size
-source_contaminated_sampled = source_contaminated.sample(n=min_samples, random_state=42)
-source_cleaned_sampled = source_cleaned.sample(n=min_samples, random_state=42)
-
-# Combine the equal number of samples from both sources
-balanced_data = pd.concat([source_contaminated_sampled, source_cleaned_sampled])
-
 # Features to be used for training
 features = ['Method name naturalness', 'Method body Naturalness', 'Method Name Length', 'LOC (Lines of Code)', 'Edit Distance']
 
-# Target (Source: Contaminated or Cleaned)
+# Target (Source: CTdata or CLdata)
 target = 'Source'
 
 # Split the data into features (X) and target (y)
-X = balanced_data[features]
-y = balanced_data[target]
+X = combined_data[features]
+y = combined_data[target]
 
 # Impute missing values with the mean
 imputer = SimpleImputer(strategy='mean')
@@ -50,16 +38,13 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# Use only the RBF kernel for SVM
-print(f"\nEvaluating SVM with RBF kernel:")
-
 # Initialize the SVM model with RBF kernel
 svm_model = SVC(kernel='rbf', probability=True)
 
 # Train the model
 svm_model.fit(X_train_scaled, y_train)
 
-# Predict the source on the test set using the model
+# Predict the source (CTdata or CLdata) on the test set using the model
 y_pred = svm_model.predict(X_test_scaled)
 y_pred_prob = svm_model.predict_proba(X_test_scaled)[:, 1]  # Probabilities for AUC calculation
 
@@ -68,23 +53,23 @@ print("Classification Report:")
 print(classification_report(y_test, y_pred))
 
 # Confusion Matrix
-conf_matrix = confusion_matrix(y_test, y_pred, labels=['Contaminated', 'Cleaned'])
-TN = conf_matrix[1, 1]  # True Negative (Cleaned correctly identified)
-FP = conf_matrix[0, 1]  # False Positive (Contaminated incorrectly identified as Cleaned)
-FN = conf_matrix[1, 0]  # False Negative (Cleaned incorrectly identified as Contaminated)
-TP = conf_matrix[0, 0]  # True Positive (Contaminated correctly identified)
+conf_matrix = confusion_matrix(y_test, y_pred, labels=['CTdata', 'CLdata'])
+TN = conf_matrix[1, 1]  # True Negative (CLdata correctly identified)
+FP = conf_matrix[0, 1]  # False Positive (CTdata incorrectly identified as CLdata)
+FN = conf_matrix[1, 0]  # False Negative (CLdata incorrectly identified as CTdata)
+TP = conf_matrix[0, 0]  # True Positive (CTdata correctly identified)
 
 # Overall Accuracy
 accuracy = (TP + TN) / (TP + TN + FP + FN)
 
-# True Positive Rate (TPR) for class Contaminated
+# True Positive Rate (TPR) for class CTdata
 tpr = TP / (TP + FN)
 
-# False Positive Rate (FPR) for class Contaminated
+# False Positive Rate (FPR) for class CTdata
 fpr = FP / (FP + TN)
 
-# ROC AUC Score for combined classes Contaminated and Cleaned
-y_test_binary = [1 if x == 'Cleaned' else 0 for x in y_test]  # Convert 'Cleaned' to 1 and 'Contaminated' to 0 for binary AUC calculation
+# ROC AUC Score for combined classes CTdata and CLdata
+y_test_binary = [1 if x == 'CLdata' else 0 for x in y_test]  # Convert 'CLdata' to 1 and 'CTdata' to 0 for binary AUC calculation
 auc = roc_auc_score(y_test_binary, y_pred_prob)
 
 # Print combined results for overall evaluation

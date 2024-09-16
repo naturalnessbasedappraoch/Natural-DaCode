@@ -68,7 +68,10 @@ python train_java_model.py \
   --eval_steps 500 \
   --logging_dir logs \
   --learning_rate 5e-5 \
-  --gradient_accumulation_steps 4
+  --gradient_accumulation_steps 4 \
+  --num_warmup_steps 500 \
+  --num_training_steps 10000
+
 
 ```
 ```sh

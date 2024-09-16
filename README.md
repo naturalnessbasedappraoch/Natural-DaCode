@@ -11,7 +11,6 @@ The objective of this project is to provide a novel approach to detecting data c
 ## Features
 - Detection of contaminated vs. cleaned datasets using naturalness and model performance.
 - Works for code completion models and method name suggestion tasks.
-- Provides significant improvements over state-of-the-art approaches like **LOSS Attack** and **Min-K% Prob**.
 - Code and dataset collection for constructing contaminated (𝐶𝑇𝑑𝑎𝑡𝑎) and cleaned (𝐶𝐿𝑑𝑎𝑡𝑎) datasets.
 
 ## Directory Structure

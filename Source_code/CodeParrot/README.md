@@ -74,10 +74,7 @@ python train_java_model.py \
 
 
 ```
-```sh
-Alternatively, you can use the shell script to run the entire process:
-bash run_java_training.sh
-```
+
 ### 4. Evaluate the Model
 ```sh
 Evaluate the trained model on both datasets(contaminated and cleaned).

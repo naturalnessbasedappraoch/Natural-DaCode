@@ -10,11 +10,6 @@ This repository contains scripts and instructions for training a RoBERTa-based m
   - [2. Preprocess Text Files](#2-preprocess-text-files)
   - [3. Train the Model](#3-train-the-model)
   - [4. Test the Model](#4-test-the-model)
-- [Scripts](#scripts)
-  - [java_to_txt.py](#java_to_txtpy)
-  - [preprocess.py](#preprocesspy)
-  - [run.py](#runpy)
-- [License](#license)
 
 ## Prerequisites
 - Python 3.6 or higher

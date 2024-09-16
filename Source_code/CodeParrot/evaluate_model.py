@@ -41,5 +41,6 @@ def generate_code_and_evaluate(file_path):
     df.to_excel("results/token_level_accuracy_results.xlsx", index=False)
 
 # Path to the JSON file with inputs and ground truths
-json_file_path = "data/test.json"
+json_file_path = "dataset/TestDataset/CodeParrot/CTdata.json"
+#json_file_path = "dataset/TestDataset/CodeParrot/CLdata.json"
 generate_code_and_evaluate(json_file_path)

@@ -133,6 +133,6 @@ This folder contains the test datasets for **(UniXcoder** and **CodeParrot)** an
 - The trained SVM classifier can then predict whether a given code comes from the contaminated dataset (`CTdata`) or the cleaned dataset (`CLdata`).
 
 ### 4. **Usage**
-- To perform contamination detection, for the code completion model, use the script `Classifier_performance.py`, and for the method name Prediction, use the script SVM2.py available in the repository. This script handles the SVM classifier's training and the source dataset's prediction for new code samples.
+- To perform contamination detection, for the code completion model, use the script `Classifier_performance.py`, and for the method name Prediction, use the script 'classifier_methodname.py' available in the repository. This script handles the SVM classifier's training and the source dataset's prediction for new code samples.
 
 

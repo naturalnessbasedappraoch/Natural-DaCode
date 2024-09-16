@@ -4,7 +4,7 @@ from datasets import load_dataset
 from tqdm import tqdm
 
 # Load the cleaned dataset
-dataset = load_dataset("json", data_files="data/cleaned_dataset.json", split="train", streaming=True)
+dataset = load_dataset("json", data_files="TRAIN_DATASET_DIR/Train_dataset.json", split="train", streaming=True)
 
 # Base tokenizer
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")

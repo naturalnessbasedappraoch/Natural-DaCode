@@ -48,7 +48,7 @@ The project uses the following directory structure:
 
 ### 1. Prepare the Dataset
 ```sh
-Run the dataset preparation script to read `.java` files, remove duplicates, and save the contaminated dataset
+Run the dataset preparation script to read `.java` files, remove duplicates, and save the Training dataset
 
 python prepare_java_dataset.py
 ```

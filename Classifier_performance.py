@@ -8,10 +8,10 @@ import os
 
 # Define the relative file paths (assuming the files are in the 'datasets' folder in your repository)
 datasets = {
-    "unixcoder": os.path.join("datasets", "unixcoder.xlsx"),
-    "codeparrot": os.path.join("datasets", "codeparrot.xlsx"),
-    "chatgpt": os.path.join("datasets", "chatgpt.xlsx"),
-    "claude": os.path.join("datasets", "claude.xlsx")
+    "unixcoder": os.path.join("datasets", "unixcoder"),
+    "codeparrot": os.path.join("datasets", "codeparrot"),
+    "chatgpt": os.path.join("datasets", "chatgpt"),
+    "claude": os.path.join("datasets", "claude")
 }
 
 # Define the SVM classifier
@@ -77,7 +77,7 @@ for dataset_name, file_path in datasets.items():
 results_df = pd.DataFrame(results, index=datasets.keys())
 
 # Save the results to an Excel file in the 'results' folder (you may need to create this folder in the repo)
-output_file_path = os.path.join("results", "evaluation_results.xlsx")
+output_file_path = os.path.join("results", "evaluation_results")
 results_df.to_excel(output_file_path, index=True)
 
 # Print the results table

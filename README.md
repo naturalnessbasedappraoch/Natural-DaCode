@@ -81,7 +81,7 @@ This folder contains the training datasets for two different code-completion mod
 
 
 - **`UniXcoder/CodeParrot Training Data`**: 
-    - Contains Java files that are used to train the UniXcoder model.
+    - Contains Java files that are used to train the UniXcoder\CodeParrot model.
     - Example files: `file1.java`, `file2.java`, etc.
     - For details on training these models, refer to the respective repositories:
         - [UniXcoder](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/UniXcoder)
@@ -117,8 +117,7 @@ This folder contains the test datasets for **(UniXcoder** and **CodeParrot)** an
 
 ## Steps for Contamination Detection
 
-### 1. **Code Token-Level Accuracy**
-- **Performance and Naturalness:**
+### 1. **Performance and Naturalness:**
   - **Performance:** Calculate the token-level accuracy from Code Completion Models.
   - **Naturalness:** Evaluate the naturalness scores for these snippets using the N-gram model.
 

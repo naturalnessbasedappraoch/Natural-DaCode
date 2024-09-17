@@ -99,10 +99,12 @@ To train the N-gram model, you can use the code provided in the [Ngram Model](ht
 This folder contains the test datasets for **(UniXcoder** and **CodeParrot)** and pre-trained models **(ChatGPT3.5 and Claude)**. The test data is split into two categories:
 
 - **`CLdata/`** (Cleaned Data):
+    - Cleaned Data mean not seen by the model during training
     - Contains clean Java files that were not part of the model training data.
     - Example files: `file1.java`, `file2.java`, etc.
   
 - **`CTdata/`** (Contaminated Data):
+    - Contaminated Data mean seen during training phase(as shown in dataset fig).
     - Contains Java files that were part of the model training data.
     - Example files: `file1.java`, `file2.java`, etc.
 

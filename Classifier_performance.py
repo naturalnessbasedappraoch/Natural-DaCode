@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, roc_curve
+from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix
 import os
 
 # Define the relative file paths (assuming the files are in the 'datasets' folder in your repository)
@@ -75,10 +75,6 @@ for dataset_name, file_path in datasets.items():
 
 # Convert the results to a DataFrame for better visualization
 results_df = pd.DataFrame(results, index=datasets.keys())
-
-# Save the results to an Excel file in the 'results' folder (you may need to create this folder in the repo)
-output_file_path = os.path.join("results", "evaluation_results")
-results_df.to_excel(output_file_path, index=True)
 
 # Print the results table
 print(results_df)

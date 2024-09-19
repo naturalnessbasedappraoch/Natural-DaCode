@@ -8,10 +8,10 @@ import os
 
 # Define the relative file paths (assuming the files are in the 'datasets' folder in your repository)
 datasets = {
-    "unixcoder": os.path.join("datasets", "unixcoder"),
-    "codeparrot": os.path.join("datasets", "codeparrot"),
-    "chatgpt": os.path.join("datasets", "chatgpt"),
-    "claude": os.path.join("datasets", "claude")
+    "unixcoder": os.path.join("datasets", "unixcoder.xlsx"),
+    "codeparrot": os.path.join("datasets", "codeparrot.xlsx"),
+    "chatgpt": os.path.join("datasets", "chatgpt.xlsx"),
+    "claude": os.path.join("datasets", "claude.xlsx")
 }
 
 # Define the SVM classifier
@@ -47,18 +47,21 @@ for dataset_name, file_path in datasets.items():
     # Load the dataset
     data = pd.read_excel(file_path)
 
-    # Select relevant columns
-    data_filtered = data[['Performance', 'Naturalness', 'Source']]
+    # Select relevant columns (using original column names)
+    data_filtered = data[['Token-level Accuracy', 'Naturalness', 'Source']]
+
+    # Filter for CTdata and CLdata labels in the 'Source' column
+    data_filtered = data_filtered[data_filtered['Source'].isin(['CTdata', 'CLdata'])]
 
     # Prepare the input features and output target
-    X = data_filtered[['Performance', 'Naturalness']]
+    X = data_filtered[['Token-level Accuracy', 'Naturalness']]
     y = data_filtered['Source']
 
-    # Encode the categorical target variable
+    # Encode the categorical target variable (CTdata, CLdata)
     label_encoder = LabelEncoder()
-    y_encoded = label_encoder.fit_transform(y)
+    y_encoded = label_encoder.fit_transform(y)  # CTdata -> 0, CLdata -> 1
 
-    # Split the data into train and test sets with an 50:50 ratio
+    # Split the data into train and test sets with a 50:50 ratio
     X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.5, random_state=42)
 
     # Scale the input features
@@ -75,6 +78,10 @@ for dataset_name, file_path in datasets.items():
 
 # Convert the results to a DataFrame for better visualization
 results_df = pd.DataFrame(results, index=datasets.keys())
+
+# Save the results to an Excel file (generic path for GitHub repository)
+output_file_path = os.path.join("datasets", "results.xlsx")
+results_df.to_excel(output_file_path, index=True)
 
 # Print the results table
 print(results_df)

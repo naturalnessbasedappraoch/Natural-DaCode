@@ -52,12 +52,11 @@ dataset/
     │   │   ├── file1.java
     │   │   ├── file2.java
     │   │   └── ...
-    │   └── CTdata/
+    │   └── CTdata
     │       ├── file1.java
     │       ├── file2.java
     │       └── ...
 └── Test Dataset (for Code Completion Models)
-    ├── ChatGPT3.5 and Claude
     │   ├── CLdata
     │   │   ├── file1.java
     │   │   ├── file2.java
@@ -66,9 +65,6 @@ dataset/
     │       ├── file1.java
     │       ├── file2.java
     │       └── ...
-    ├── UniXcoder and CodeParrot
-            ├── CLdata.json
-            ├── CTdata.json
 ```
 ## Download Dataset
 

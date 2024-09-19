@@ -72,9 +72,9 @@ for dataset_name, file_path in datasets.items():
     # Evaluate the classifier
     accuracy, tpr, fpr, auc = evaluate_model(classifier, X_train_scaled, X_test_scaled, y_train, y_test)
     results['Accuracy'].append(accuracy * 100)  # Convert to percentage
-    results['TPR'].append(tpr)
-    results['FPR'].append(fpr)
-    results['AUC'].append(auc * 100)  # Convert to percentage
+    results['TPR'].append(tpr * 100)
+    results['FPR'].append(fpr * 100)
+    results['AUC'].append(auc * 100)  
 
 # Convert the results to a DataFrame for better visualization
 results_df = pd.DataFrame(results, index=datasets.keys())

@@ -149,6 +149,5 @@ Replace path_to_your_datasets_folder with the actual path to your datasets folde
    ```bash
    python Classifier_performance.py --datasets_dir path_to_your_datasets_folder
 ```
-Replace path_to_your_datasets_folder with the actual path to your datasets folder containing performance and naturalness scores.
-
+Again, replace path_to_your_datasets_folder with the actual path to your dataset for method name prediction.
 

@@ -141,13 +141,14 @@ To perform contamination detection for both the **Code Completion Model** and th
    ```bash
    python Classifier_performance.py --datasets_dir path_to_your_datasets_folder
 Replace path_to_your_datasets_folder with the actual path to your datasets folder containing performance and naturalness scores.
+
 -- **For Method Name Prediction Model:**
 
     To detect contamination using method name predictions, run the classifier_methodname.py script:
 
    ```bash
    python Classifier_performance.py --datasets_dir path_to_your_datasets_folder
-
+```
 Replace path_to_your_datasets_folder with the actual path to your datasets folder containing performance and naturalness scores.
 
 

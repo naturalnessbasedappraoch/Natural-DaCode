@@ -144,10 +144,10 @@ Replace path_to_your_datasets_folder with the actual path to your datasets folde
 
 -- **For Method Name Prediction Model:**
 
-To detect contamination using method name predictions, run the classifier_methodname.py script:
+To detect contamination using method name predictions, run the Classifier_methodname.py script:
 
    ```bash
-   python Classifier_performance.py --datasets_dir path_to_your_datasets_folder
+   python Classifier_methodname.py --datasets_dir path_to_your_datasets_folder
 ```
 Again, replace path_to_your_datasets_folder with the actual path to your dataset for method name prediction.
 

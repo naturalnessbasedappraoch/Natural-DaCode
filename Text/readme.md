@@ -4,8 +4,6 @@ This repository contains instructions on how to classify contaminated data with 
  
 
 ### Loading the Datasets:
-```python
-from datasets import load_dataset
-LENGTH = 64
-dataset = load_dataset("swj0419/WikiMIA", split=f"WikiMIA_length{LENGTH}")
+```bash
+python execute_download.py --output_folder
 

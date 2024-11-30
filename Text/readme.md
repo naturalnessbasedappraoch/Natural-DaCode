@@ -1,4 +1,7 @@
-The WikiMIA datasets serve as a benchmark, specifically in detecting pretraining data from extensive large language models. Access WikiMIA datasets directly on Hugging Face.
+# Contamination Detection of Textual Data with Natural-DaCoDe
+
+This repository contains instructions on how to classify contaminated data with **Natural-DaCoDe**, including how to access the dataset.
+ 
 
 ### Loading the Datasets:
 ```python

@@ -19,9 +19,7 @@ We conclude based on the preceding analysis that the proposed approach could be 
 | **Loss Attack** | 62.12        | 64.03   | 41.21   | 64.00   |
 
 ## References
-
-[^1](https://github.com/
-naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation). : Naturalnessbasedappraoch. 2024. Natural Language Benchmark Evaluation. https://github.com/
+[^1](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation) : Naturalnessbasedappraoch. 2024. Natural Language Benchmark Evaluation. https://github.com/
 naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation. Accessed:
 2024.
 [^2]: Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra Blevins, Danqi Chen, and Luke Zettle-

@@ -10,7 +10,7 @@ During the evaluation, we requested the model to accomplish a **text completion 
 
 We conclude based on the preceding analysis that the proposed approach could be applied to normal texts besides source code, and it remains more accurate than the state-of-the-art baselines in this field. The replication package of the evaluation is publicly available at [1].
 
-## Performance Comparison
+### Table 1. Performance Comparison on Normal Text Benchmark
 
 | Approaches     | Accuracy (%) | TPR (%) | FPR (%) | AUC (%) |
 |----------------|--------------|---------|---------|---------|

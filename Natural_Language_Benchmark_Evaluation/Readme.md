@@ -42,5 +42,5 @@ The folder you download from script contains the test datasets for **ChatGPT3.5*
 To perform contamination detection use the following scripts available in the repository:
 
    ```bash
-   python Classifier_performance.py --datasets_dir path_to_your_datasets_folder
+   python Classifier.py --datasets_dir path_to_your_datasets_folder
 ```

@@ -8,7 +8,7 @@ During the evaluation, we requested the model to accomplish a **text completion 
 
   The results of the evaluation are shown in the table below. From the table, we observe that on all key metrics the proposed approach, i.e., **Natural-DaCoDe**, outperforms both baselines, i.e., **Loss Attack** and **Min-K% Prob**. It demonstrated a substantial performance boost, achieving an accuracy of **83.32%**, substantially higher than that of Loss Attack (**62.12%**) and Min-K% Prob (**68.31%**). The relative improvement in accuracy is 34% = (83.32 - 62.12%) / 62.12% (compared to Loss Attack) and 22% = (83.32 - 68.31%) / 68.31% (compared to Min-K% Prob). Additionally, **Natural-DaCoDe** exhibited a **true positive rate (TPR)** of **84.11%** and a significantly lower **false positive rate (FPR)** of **22.93%**, resulting in an **AUC score of 0.88**. Its AUC score is substantially greater than that of Min-K% Prob (**74%**) and Loss Attack (**64%**).
 
-We conclude based on the preceding analysis that the proposed approach could be applied to normal texts besides source code, and it remains more accurate than the state-of-the-art baselines in this field. The replication package of the evaluation is publicly available at [Natural Language Benchmark Evaluation]([Link]).
+We conclude based on the preceding analysis that the proposed approach could be applied to normal texts besides source code, and it remains more accurate than the state-of-the-art baselines in this field. The replication package of the evaluation is publicly available at [^1].
 
 ## Performance Comparison
 
@@ -19,10 +19,6 @@ We conclude based on the preceding analysis that the proposed approach could be 
 | **Loss Attack** | 62.12        | 64.03   | 41.21   | 64.00   |
 
 ## References
-[^1](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation) : Naturalnessbasedappraoch. 2024. Natural Language Benchmark Evaluation. https://github.com/
-naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation. Accessed:
-2024.
-[^2]: Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra Blevins, Danqi Chen, and Luke Zettle-
-moyer. 2024. Detecting Pretraining Data from Large Language Models. In The Twelfth International Conference on
-Learning Representations. https://openreview.net/forum?id=zWqr3MQuNs
-[^2]: SWJ0419. [n. d.]. WikiMIA. https://huggingface.co/datasets/swj0419/WikiMIA. Accessed: 2024.
+[^1](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation) :Naturalnessbasedappraoch. 2024. Natural Language Benchmark Evaluation. https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation. Accessed:2024.
+[^2]:Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra Blevins, Danqi Chen, and Luke Zettle-moyer. 2024. Detecting Pretraining Data from Large Language Models. In The Twelfth International Conference on Learning Representations. https://openreview.net/forum?id=zWqr3MQuNs
+[^3]( https://huggingface.co/datasets/swj0419/WikiMIA) :SWJ0419. [n. d.]. WikiMIA. https://huggingface.co/datasets/swj0419/WikiMIA. Accessed: 2024.

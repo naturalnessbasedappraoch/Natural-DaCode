@@ -5,7 +5,7 @@ This repository contains instructions on how to classify contaminated data with 
 ### 1. `Downloading the Datasets`
 
 ```bash
-python Download.py --output_folder <path_to_output_folder>
+python Data_download.py --output_folder <path_to_output_folder>
 ```
 ### 2. `Train Dataset (for N-gram Model)`
 This folder contains the data used to train the n-gram model. It includes various text files:

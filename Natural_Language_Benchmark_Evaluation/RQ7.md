@@ -21,7 +21,7 @@ We conclude based on the preceding analysis that the proposed approach could be 
 
 
 ## References
-[[1](https://huggingface.co/datasets/swj0419/WikiMIA)] :SWJ0419. [n. d.]. WikiMIA. https://huggingface.co/datasets/swj0419/WikiMIA. Accessed: 2024.
+[[1](https://huggingface.co/datasets/swj0419/WikiMIA)] :SWJ0419. 2024. WikiMIA. https://huggingface.co/datasets/swj0419/WikiMIA. Accessed: 2024.
 
 [2]:Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra Blevins, Danqi Chen, and Luke Zettle-moyer. 2024. Detecting Pretraining Data from Large Language Models. In The Twelfth International Conference on Learning Representations. https://openreview.net/forum?id=zWqr3MQuNs
 

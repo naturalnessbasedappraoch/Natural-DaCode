@@ -20,6 +20,11 @@ We conclude based on the preceding analysis that the proposed approach could be 
 
 ## References
 
-[^1]: WIKIMIA dataset - [Link to dataset or citation]
-[^2]: Min-k% Prob baseline - [Link to paper or citation]
-
+[^1](https://github.com/
+naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation). : Naturalnessbasedappraoch. 2024. Natural Language Benchmark Evaluation. https://github.com/
+naturalnessbasedappraoch/Natural-DaCode/tree/main/Natural_Language_Benchmark_Evaluation. Accessed:
+2024.
+[^2]: Weijia Shi, Anirudh Ajith, Mengzhou Xia, Yangsibo Huang, Daogao Liu, Terra Blevins, Danqi Chen, and Luke Zettle-
+moyer. 2024. Detecting Pretraining Data from Large Language Models. In The Twelfth International Conference on
+Learning Representations. https://openreview.net/forum?id=zWqr3MQuNs
+[^2]: SWJ0419. [n. d.]. WikiMIA. https://huggingface.co/datasets/swj0419/WikiMIA. Accessed: 2024.

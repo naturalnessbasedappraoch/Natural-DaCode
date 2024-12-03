@@ -7,13 +7,17 @@ This repository contains instructions on how to classify contaminated data with 
 ```bash
 python Data_download.py --output_folder <path_to_output_folder>
 ```
-### 2. `Train Dataset (for N-gram Model)`
+### 2. `Downloading the Datasets`
+Download the N-gram text data to train the N-gram model using this link: [N-gram Text Data](https://drive.google.com/file/d/1huji6_lry_cjpNXC1nnYlO8tHQOHh5u5/view?usp=sharing)
+
+
+### 3. `Train Dataset (for N-gram Model)`
 This folder contains the data used to train the n-gram model. It includes various text files:
 
 - Example files: `file1.txt`, `file2.txt`, etc.
 To train the N-gram model, you can use the code provided in the [Ngram Model](https://github.com/naturalnessbasedappraoch/Natural-DaCode/tree/main/Source_code/n-gram_cachelm) repository. Follow the instructions in the repository to preprocess the data and train the model.
 
-### 3. `Test Dataset (for Text Completion )`
+### 4. `Test Dataset (for Text Completion )`
 
 The folder you download from script contains the test datasets for **ChatGPT3.5**. The test data is split into two categories:
 
